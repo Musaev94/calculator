@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  calculator_geek
 //
-//  Created by user on 29/10/21.
+//  Created by Musaev on 29/10/21.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ class  ViewController : UIViewController {
   
     @IBOutlet weak var resultLabel: UILabel!
     
-    var numberOne: Int? = nil
+    var numberOne: Float? = nil
     
     var action: String? = nil
     
@@ -113,27 +113,23 @@ class  ViewController : UIViewController {
     @IBAction func ravnoClick(_ sender: Any) {
         
         if(action == "+") {
-            resultLabel.text = String((numberOne ?? 0) + Int(resultLabel.text ?? "0")!)
+            resultLabel.text = String((numberOne ?? 0) + Float(resultLabel.text ?? "0")!)
             
         } else if (action == "-") {
             
-            resultLabel.text = String((numberOne ?? 0) - Int(resultLabel.text ?? "0")!)
+            resultLabel.text = String((numberOne ?? 0) - Float(resultLabel.text ?? "0")!)
             
         } else if (action == "/") {
             
-            resultLabel.text = String((numberOne ?? 0) / Int(resultLabel.text ?? "0")!)
+            resultLabel.text = String((numberOne ?? 0) / Float(resultLabel.text ?? "0")!)
             
         } else if (action == "*") {
             
-            resultLabel.text = String((numberOne ?? 0) * Int(resultLabel.text ?? "0")!)
+            resultLabel.text = String((numberOne ?? 0) * Float(resultLabel.text ?? "0")!)
             
         }
 
-//        } else if (action == "%") {
-//
-//            resultLabel.text = String((numberOne ?? 0) % Int(resultLabel.text ?? "0")!)
-//
-//        }
+
         
         numberOne = nil
         
@@ -145,7 +141,7 @@ class  ViewController : UIViewController {
         
         
         if (numberOne == nil) {
-           numberOne = Int(resultLabel.text ?? "0")
+           numberOne = Float(resultLabel.text ?? "0")
             resultLabel.text = "0"
             action = "+"
         }
@@ -154,7 +150,7 @@ class  ViewController : UIViewController {
     
     @IBAction func minusClick(_ sender: Any) {
         if (numberOne == nil) {
-            numberOne = Int(resultLabel.text ?? "0")
+            numberOne = Float(resultLabel.text ?? "0")
             resultLabel.text = "0"
             action = "-"
 
@@ -163,7 +159,7 @@ class  ViewController : UIViewController {
     
     @IBAction func umnojitClick(_ sender: Any) {
         if (numberOne == nil) {
-            numberOne = Int(resultLabel.text ?? "0")
+            numberOne = Float(resultLabel.text ?? "0")
             resultLabel.text = "0"
             action = "*"
 
@@ -172,7 +168,7 @@ class  ViewController : UIViewController {
     
     @IBAction func razdelitClick(_ sender: Any) {
         if (numberOne == nil) {
-            numberOne = Int(resultLabel.text ?? "0")
+            numberOne = Float(resultLabel.text ?? "0")
             resultLabel.text = "0"
             action = "/"
 
@@ -180,7 +176,7 @@ class  ViewController : UIViewController {
     }
     
     @IBAction func procentyClick(_ sender: Any) {
-//        action = "%"
+        resultLabel.text = String(Float(resultLabel.text ?? "0")! /  100)
     }
     
     @IBAction func plusMinusClick(_ sender: Any) {
